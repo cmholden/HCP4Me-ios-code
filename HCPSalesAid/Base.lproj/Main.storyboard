@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qFW-q7-Dk1"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2374" y="-320"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="gZd-HA-8GM">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UDC-O0-slW" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cux-xk-8Iy"/>
+                        <viewControllerLayoutGuide type="bottom" id="GMA-le-lv1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MOe-ju-fh6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Enter Asset Search Text" translatesAutoresizingMaskIntoConstraints="NO" id="W0z-tP-h56">
+                                <rect key="frame" x="0.0" y="65" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="W0z-tP-h56" secondAttribute="trailing" id="0Dh-po-l8J"/>
+                            <constraint firstItem="W0z-tP-h56" firstAttribute="top" secondItem="Cux-xk-8Iy" secondAttribute="bottom" constant="1" id="Dmm-Xr-VTh"/>
+                            <constraint firstItem="W0z-tP-h56" firstAttribute="leading" secondItem="MOe-ju-fh6" secondAttribute="leading" id="h9u-qC-nHM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ulx-yt-PBK"/>
+                    <connections>
+                        <outlet property="searchBar" destination="W0z-tP-h56" id="uOt-0Y-guK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sq6-j6-sOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5584" y="343"/>
+        </scene>
+        <!--Forum-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="ForumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hC4-Au-cIB">
+                                <rect key="frame" x="74" y="92" width="153" height="30"/>
+                                <state key="normal" title="Update Assets">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downloadAssets:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="x6v-7l-O9j"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hC4-Au-cIB" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="58" id="Kuf-gb-hfZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Forum" id="wg6-6H-iyd"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="updateButton" destination="hC4-Au-cIB" id="uzx-me-dl6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3998" y="360"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hYS-Wg-DcL" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="X42-Ks-hvc" kind="relationship" relationship="viewControllers" id="Z8M-vO-mOs"/>
+                        <segue destination="ryL-uR-XGb" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="ea5-Nb-YDr" kind="relationship" relationship="viewControllers" id="YDd-kB-kyx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-110"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="lSb-jH-vMt">
+            <objects>
+                <viewController restorationIdentifier="FavoritesViewController" storyboardIdentifier="FavoritesViewController" title="Favorites" id="zsQ-Rl-FPU" customClass="FavoritesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d1V-fR-1rn"/>
+                        <viewControllerLayoutGuide type="bottom" id="jvi-Kd-5vz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9s2-QC-cNO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="gas-DI-D7z"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nh6-Te-HMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805" y="628"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="1nU-8b-N7J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="hYS-Wg-DcL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="TabBar-Home.png" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="IoZ-XU-KHr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="Ht2-qh-CJf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-Ag-Xcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1562" y="-320"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y5g-V3-bMH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ltM-GY-tkR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YTU-Ly-RX4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UDC-O0-slW" kind="relationship" relationship="rootViewController" id="ke6-KT-d4W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P0g-ro-R5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4772" y="343"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="6Ai-5m-c5R">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hd6-Um-ctv" customClass="MenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wgp-Ho-nJj"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahV-hb-EmL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gEj-kf-ann">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Menu" id="g17-Jc-Z3K"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gC9-8x-hY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="-79"/>
+        </scene>
+        <!--Faorites-->
+        <scene sceneID="FJv-7p-eiV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="X42-Ks-hvc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Faorites" image="TabBar-Favorites.png" selectedImage="TabBar-Favorites.png" id="SVt-ne-Lfn"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="cHt-HC-DJQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zsQ-Rl-FPU" kind="relationship" relationship="rootViewController" id="uq1-PP-zRe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pae-Hq-n0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7" y="628"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="KlM-z0-Heo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="ea5-Nb-YDr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Menu" image="TabBar-Menu.png" selectedImage="search_30x30.png" id="6n8-qM-HsQ"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Acc-fb-0NW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hd6-Um-ctv" kind="relationship" relationship="rootViewController" id="9vl-hz-WLu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Itn-Ec-EET" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-754" y="-79"/>
+        </scene>
+        <!--Forum-->
+        <scene sceneID="E3f-fT-KKL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ryL-uR-XGb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Forum" image="TabBar-Forums.png" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="tsZ-ph-ZIN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="Fzr-pL-mvD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0R8-Od-gmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3186" y="360"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TabBar-Favorites.png" width="25" height="25"/>
+        <image name="TabBar-Forums.png" width="25" height="25"/>
+        <image name="TabBar-Home.png" width="25" height="25"/>
+        <image name="TabBar-Menu.png" width="25" height="25"/>
+        <image name="search_30x30.png" width="30" height="30"/>
+    </resources>
+</document>
