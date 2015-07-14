@@ -74,6 +74,8 @@ SeachCollectionView *searchCollectionView;
     [super viewWillAppear:animated];
     
     userHistoryViews = [assetLoader loadAssetsFromFile:@USER_VIEWS_PLIST];
+    if( self.searchBar.text.length > 1)
+        [self findAssets:self.searchBar.text];
 }
 //****** SEARCH BAR Delegate ****//
 

@@ -60,7 +60,7 @@
     self.titleText = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.frame.origin.x + self.imageView.frame.size.width + leftIndent,
                                        htGap,
                                        self.frame.size.width - self.imageView.frame.size.width - leftIndent - 60,
-                                       30)];
+                                       38)];
     [self.titleText setNumberOfLines:0];
     self.titleText.lineBreakMode = NSLineBreakByWordWrapping;
     self.titleText.font = fBoldBody;
@@ -69,7 +69,7 @@
 
     favsOffImg = [UIImage imageNamed:@"Favourites List Icon-Add.png"];
     favsOnImg = [UIImage imageNamed:@"Favourites List Icon.png"];
-    trashImg = [UIImage imageNamed:@"trash32.png"];
+    trashImg = [UIImage imageNamed:@"22-NavBar-Trash.png"];
     
     favoritesButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 79.0f, -5.0f, 90.0f, 90.0f)];
     favoritesButton.imageEdgeInsets = UIEdgeInsetsMake(-35, 35, 0, 0);
@@ -82,7 +82,7 @@
     self.detailText = [[UILabel alloc] initWithFrame:CGRectMake(
                                                                 self.titleText.frame.origin.x,
                                                             self.titleText.frame.origin.y + self.titleText.frame.size.height ,
-                                                            self.frame.size.width - self.imageView.frame.size.width - titleIndent * 6, 36)];
+                                                            self.frame.size.width - self.imageView.frame.size.width - titleIndent * 6, 28)];
     [self.detailText setNumberOfLines:0];
     self.detailText.font = fBody;
     self.detailText.lineBreakMode = NSLineBreakByWordWrapping;
@@ -93,7 +93,7 @@
     
     self.userViewText = [[UILabel alloc] initWithFrame:CGRectMake(self.detailText.frame.origin.x ,
                                                                 self.detailText.frame.origin.y + self.detailText.frame.size.height ,
-                                                                self.frame.size.width - self.imageView.frame.size.width - titleIndent * 6, 36)];
+                                                                self.frame.size.width - self.imageView.frame.size.width - titleIndent * 6, 22)];
     [self.userViewText setNumberOfLines:0];
     self.userViewText.font = fBody;
     self.userViewText.lineBreakMode = NSLineBreakByWordWrapping;
@@ -199,16 +199,7 @@
     [detailTxt appendAttributedString:attrStringWithImage ];
     
     int fileLen = dataObject.fileLength;
-    if( fileLen > 1000000){ //greater than 1 MB
-        tmpStr =[NSString stringWithFormat:@"%0.1d MB", fileLen/1000000];
-    }
-    else if (fileLen > 1000){ //greater than 1kb
-        tmpStr =[NSString stringWithFormat:@"%0.1d KB", fileLen/1000];
-    }
-    else{
-        tmpStr =[NSString stringWithFormat:@"%0.1d B", fileLen];
-    }
-    
+    tmpStr = [Utilities getSizeAsDiskSize : fileLen];
     if( tmpStr != nil){
         tmpStr = [tmpStr stringByAppendingString:@"  |  "];
         NSMutableAttributedString *timeDetail = [[NSMutableAttributedString alloc] initWithString:tmpStr];

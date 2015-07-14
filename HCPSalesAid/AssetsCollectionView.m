@@ -26,7 +26,7 @@
 @synthesize assetsBySection;
 
 
-float cellHT = 101.0f;
+float cellHT = 98.0f;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -307,6 +307,11 @@ AssetsCollectionHeaderView *currentHeader;
 
     
 }
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake((self.frame.size.width - 12), cellHT);
+}
+
 //====== Collection View Delegate =========//
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -444,6 +449,8 @@ AssetsCollectionHeaderView *currentHeader;
         double d2 = moviePlayer.duration;
         double d3 = d1/d2 * 100;
         [assetRetriever updateUserViews:fileName percentViewed:d3];
+        //also save to server if we have a connection
+        [assetRetriever updateOnlineUserViews];
         // Remove this class from the observers
         
         [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -481,9 +488,6 @@ AssetsCollectionHeaderView *currentHeader;
     [collection reloadData];
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((self.frame.size.width - 12), cellHT);
-}
 //=============== ReaderViewControllerDelegate ==================//
 - (void)dismissReaderViewController:(ReaderViewController *)viewController{
     NSLog(@"PDF Reader view dissmissed");
@@ -495,6 +499,8 @@ AssetsCollectionHeaderView *currentHeader;
         double percent = (double)(pageNum / pageCount) * 100;
         NSString *fileName = pdfDoc.fileName;
         [assetRetriever updateUserViews:fileName percentViewed:percent];
+        //also save to server if we have a connection
+        [assetRetriever updateOnlineUserViews];
     }
     [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
     [viewController dismissViewControllerAnimated:YES completion:nil];

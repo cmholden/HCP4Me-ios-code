@@ -20,4 +20,12 @@
 + (UIColor *) getLightGray;
 + (UIColor *) getDarkGray;
 
++ (UIFont *) getBoldFont : (int) size;
+
++ (UIFont *) getFont : (int) size;
+
++ (UIFont *) getItalicFont : (int) size;
+
++ (NSString *) getSizeAsDiskSize : (int) len;
+
 @end

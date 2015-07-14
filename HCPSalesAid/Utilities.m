@@ -50,5 +50,32 @@
 + (UIColor *) getDarkGray{
     return [UIColor colorWithRed:((float)102)/255 green:((float)102)/255 blue:((float)102)/255 alpha:1.0f];
 }
++ (UIFont *) getBoldFont : (int) size{
+    return [UIFont fontWithName:@"Arial-BoldMT" size:size];
+    
+}
+
++ (UIFont *) getFont : (int) size{
+    return [UIFont fontWithName:@"ArialMT" size:size];
+    
+}
++ (UIFont *) getItalicFont : (int) size{
+    return [UIFont fontWithName:@"Arial-ItalicMT" size:size];
+    
+}
+
++ (NSString *) getSizeAsDiskSize : (int) len{
+    NSString *tmpStr = @"";
+    if( len > 1000000){ //greater than 1 MB
+        tmpStr =[NSString stringWithFormat:@"%0.1d MB", len/1000000];
+    }
+    else if (len > 1000){ //greater than 1kb
+        tmpStr =[NSString stringWithFormat:@"%0.1d KB", len/1000];
+    }
+    else{
+        tmpStr =[NSString stringWithFormat:@"%0.1d B", len];
+    }
+    return tmpStr;
+}
 
 @end

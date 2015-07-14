@@ -17,13 +17,14 @@
 @implementation AppDelegate{
     BOOL _isFullScreen;
 }
-
+#define BASE_URL "https://salesassetsappbc0c02b2a.us1.hana.ondemand.com/HCPSalesApp/"
+//@"https://salesassetsapps0007106801trial.hanatrial.ondemand.com/HCPSalesApp/"
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *currentBaseURL = [defaults objectForKey:@"baseurl"];
-    NSString *currentDefBaseURL = @"https://salesassetsapps0007106801trial.hanatrial.ondemand.com/HCPSalesApp/";
+    NSString *currentDefBaseURL = @BASE_URL;
     
     
     [defaults setObject:currentDefBaseURL forKey:@"default_baseurl"];
@@ -50,6 +51,31 @@
     [UITabBarItem.appearance setTitleTextAttributes:
      @{NSForegroundColorAttributeName : [Utilities getSAPGold]}
                                            forState:UIControlStateSelected];
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    
+    // repeat for every tab, but increment the index each time
+    UITabBarItem *firstTab = [tabBar.items objectAtIndex:0];
+    // also repeat for every tab
+    firstTab.image = [[UIImage imageNamed:@"TabBar-Home-Inactive.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    firstTab.selectedImage = [[UIImage imageNamed:@"TabBar-Home-Active.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UITabBarItem *secondTab = [tabBar.items objectAtIndex:1];
+    // also repeat for every tab
+    secondTab.image = [[UIImage imageNamed:@"TabBar-Favorites-Inactive.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    secondTab.selectedImage = [[UIImage imageNamed:@"TabBar-Favorites-Active.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
+    UITabBarItem *thirdTab = [tabBar.items objectAtIndex:2];
+    // also repeat for every tab
+    thirdTab.image = [[UIImage imageNamed:@"TabBar-Forums-InActive.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    thirdTab.selectedImage = [[UIImage imageNamed:@"TabBar-Forums-Active.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UITabBarItem *fourthTab = [tabBar.items objectAtIndex:3];
+    // also repeat for every tab
+    fourthTab.image = [[UIImage imageNamed:@"TabBar-Menu-Inactive.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    fourthTab.selectedImage = [[UIImage imageNamed:@"TabBar-Menu-Active.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     return YES;
 }
 //Allow rotate on video and pdf otherwise portrait

@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utilities.h"
 
-#import "AssetRetriever.h"
-#import "DownloadDelegate.h"
+@interface ForumViewController : UIViewController<UIWebViewDelegate>
 
-@interface ForumViewController : UIViewController <UIAlertViewDelegate, DownloadDelegate>
-
-@property (strong, nonatomic) IBOutlet UIButton *updateButton;
+@property (strong, nonatomic) IBOutlet UIWebView *forumWebView;
 
 
 @end

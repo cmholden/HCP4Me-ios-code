@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AssetDataObject.h"
+#import "AssessmentDataObject.h"
+#import "CHCSVParser.h"
 #import "DownloadDelegate.h"
 #import "Utilities.h"
 #import "ListStructureObject.h"
@@ -19,7 +21,14 @@
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
+#define ASSESSMENT_CSV "assessment"
+
+#define ASSESS_DATA_PLIST "assessment.plist"
+
+#define ASSESS_ORDER_PLIST "assessmentOrder.plist"
+
 #define ASSET_PLIST "assetList.plist"
+
 #define IMAGE_PATH "images"
 #define FAVORITES_PLIST "favorites.plist"
 #define LOCAL_ASSET_PLIST "localAssetList.plist"
@@ -31,6 +40,8 @@
 #define WEEKLY_FOCUS "weeklyfocus"
 
 @property (strong, nonatomic) id<DownloadDelegate> downloadDelegate;
+
+@property (nonatomic) int downloadSize;
 
 - (void) loadJSONAssetList;
 
@@ -50,8 +61,17 @@
 
 - (void) updateOnlineUserViews;
 
+- (void) updateOnlineAssessmentStatus;
+
 - (NSMutableArray *) loadFavoritesFromFile;
 
 - (void) writeArrayToFile : (NSMutableArray *)arrayToSave : (NSString *) fileName;
+
+- (NSMutableArray *) loadAssessmentDataFromFile;
+
+- (NSMutableArray *) loadAssessmentOrdererListFromFile;
+
+- (void) addResignNotification;
+
 
 @end

@@ -15,68 +15,72 @@
 
 @implementation ForumViewController
 
-AssetRetriever *downloadAssets;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    downloadAssets = [[AssetRetriever alloc] init];
-    downloadAssets.downloadDelegate = self;
+    self.forumWebView.hidden = YES;
+    /*
+    NSURL *pageURL = [NSURL URLWithString:@"http://www.theverge.com/forums/mobile"];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:pageURL];
+    self.forumWebView.delegate = self;
+    [self.forumWebView loadRequest:requestObj];
+     */
+    UILabel *forumDesc = [[UILabel alloc] initWithFrame:CGRectMake(20, 120,  self.view.frame.size.width - 40, 65)];
+    forumDesc.textColor = [UIColor blackColor];
+    forumDesc.numberOfLines = 3;
+    forumDesc.text = @"To Join the HCP4Me JAM forum, you will need to open it in the Safari Browser";
+    forumDesc.textAlignment = NSTextAlignmentLeft;
+    forumDesc.font = [Utilities getFont:18];
+    [self.view addSubview:forumDesc];
+    
+    UIButton *viewForum = [[UIButton alloc] initWithFrame:CGRectMake(20, 200, self.view.frame.size.width - 40, 45)];
+    [viewForum setTitle:@"GO TO FORUM" forState:UIControlStateNormal];
+    viewForum.tintColor = [UIColor whiteColor];
+    viewForum.titleLabel.font = [Utilities getBoldFont:18];
+    viewForum.backgroundColor = [Utilities getSAPGold];
+    [viewForum addTarget:self action:@selector(viewForumClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:viewForum];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)downloadAssets:(id)sender {
-    [downloadAssets updateOnlineUserViews];
-    [downloadAssets loadJSONAssetList];
+
+- (void)viewForumClicked : (id) sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.google.co.uk"]];
 }
 
-- (void) setNumberOfDownloads : (int) numDownloads{
+//**** WEB View delegate  ***/
 
-    if( numDownloads == 0){
-        [self alertUserNoDownloads];
+UIActivityIndicatorView* activityIndicator1;
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType{
+    if( activityIndicator1 == nil){
+        activityIndicator1 = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator1.frame = CGRectMake(self.view.frame.size.width/2 - 25,
+                                             self.view.frame.size.height/2 - 25, 50, 50 );
     }
-    else{
-        NSString *msg = [NSString stringWithFormat:@"%d", numDownloads];
-        msg = [msg stringByAppendingString:@" updates are available. Do you want to download them?"];
-        [self alertUserDownload : msg];
+    [activityIndicator1 startAnimating];
+    [self.view addSubview:activityIndicator1];
+    
+    return YES;
+    
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    if( activityIndicator1 != nil){
+        [activityIndicator1 stopAnimating];
+        [activityIndicator1 removeFromSuperview];
     }
-   
 }
 
-- (void) alertUserDownload: (NSString *)msg {
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
     
-    UIAlertView *popup = [[UIAlertView alloc]
-                          initWithTitle:@"Download Assets"
-                          message:msg
-                          delegate:nil
-                          cancelButtonTitle:@"Cancel"
-                          otherButtonTitles:@"Download", nil];
-    popup.delegate = self;
-    [popup show];
-}
-
-- (void) alertUserNoDownloads {
-    
-    UIAlertView *popup = [[UIAlertView alloc]
-                          initWithTitle:@"Download Assets"
-                          message:@"Your assets are up to date!"
-                          delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles: nil];
-    [popup show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if( buttonIndex == 1){
-        [downloadAssets downloadAsset];
+    if( activityIndicator1 != nil){
+        [activityIndicator1 stopAnimating];
+        [activityIndicator1 removeFromSuperview];
     }
-    alertView.delegate = nil;
-    [alertView dismissWithClickedButtonIndex:0 animated:YES];
-    
 }
 
 @end

@@ -21,7 +21,7 @@
 @interface AssetsCollectionView : UICollectionView<ReaderViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,
             AssetsCollectionDelegate>
 
-@property(nonatomic) BOOL selectedSection;
+@property(nonatomic) int selectedSection;
 @property(strong,nonatomic) NSMutableArray *baseData;
 @property(strong,nonatomic) UILabel *favoritesLabel;
 @property(strong,nonatomic) NSMutableDictionary *userViewsValues;
