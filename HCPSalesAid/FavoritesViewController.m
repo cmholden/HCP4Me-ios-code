@@ -40,7 +40,7 @@ UIBarButtonItem *rightButton1;
                                                                    action:@selector(editFavorites:)];
     
     
-    rightButton1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self
+    rightButton1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self
                                                                 action:@selector(editFavorites:)];
     
     self.navigationController.navigationBar.tintColor = [Utilities getSAPGold];
@@ -105,7 +105,8 @@ UIBarButtonItem *rightButton1;
         favCollectionView.isEditing = YES;
     }
     //recreate the data
-    [favCollectionView resetAndReload];
+    [self buildFavoritesList];
+  //  [favCollectionView resetAndReload];
 }
 - (void) setupCollectionView {
     float std_margin = 1.0f;

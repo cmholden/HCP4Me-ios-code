@@ -82,7 +82,7 @@ UILabel *downloadStatus;
 
 -(void) createData {
     sourceData = [[NSMutableDictionary alloc] initWithCapacity:5];
-    NSArray *section1 = [NSArray arrayWithObjects:@"Sales Resources", @"Assessment", nil];
+    NSArray *section1 = [NSArray arrayWithObjects:@"Resources", @"Assessment", nil];
     [sourceData setObject:section1 forKey:@"0"];
     
     NSArray *section2 = [NSArray arrayWithObjects:@"Profile Settings", @"Check for Update/Sync Device", nil];
@@ -188,7 +188,7 @@ UILabel *downloadStatus;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
      NSString *value = cell.textLabel.text;
      
-    if( [value isEqualToString:@"Sales Resources"]){
+    if( [value isEqualToString:@"Resources"]){
         [self goHomeTab : 1];
     }
     else if( [value isEqualToString:@"Assessment"]){

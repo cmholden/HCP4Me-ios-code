@@ -184,12 +184,14 @@
             self.correctImg.hidden = NO;
             [self showHideCorrectItems:YES];
             self.correctAnswer.text = @"";
+            [self.assessDataObject updateStatus : 2];
         }
         else{ //wrong
             self.userAnswerTitle.text = @INCORRECT_ANSWER;
             self.userAnswerTitle.textColor = [UIColor redColor];
             self.correctImg.hidden = YES;
             [self showHideCorrectItems:NO];
+            [self.assessDataObject updateStatus : 1];
             self.correctAnswer.text = [self.assessDataObject getCorrectAnswerText];
         }
         self.userAnswer.text = [self.assessDataObject getUserAnswerText];
@@ -215,7 +217,7 @@
 - (void)goHome {
     
     self.assessDataObject.userAnswers = self.currentSelections;
-    [self.assessDataObject updateStatus : 2];
+    
     
     NSDate *dt = [[NSDate alloc] init];
     self.assessDataObject.tstamp =  dt.timeIntervalSince1970 * 1000;
