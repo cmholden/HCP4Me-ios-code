@@ -10,6 +10,8 @@
 	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>0E80E8523312084BCA6E7067B81D87C309C27D4D</key>
+		<string>https://github.com/cmholden/HCPSalesAid.git</string>
 		<key>4E08F00F98CCF4F0C2C295AA18224CF86B49286E</key>
 		<string>https://github.com/cmholden/HCP4Me-ios-code.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>HCPSalesAid.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>0E80E8523312084BCA6E7067B81D87C309C27D4D</key>
+		<string>../..HCPSalesAid/</string>
 		<key>4E08F00F98CCF4F0C2C295AA18224CF86B49286E</key>
 		<string>../..</string>
 	</dict>
@@ -33,6 +37,14 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>4E08F00F98CCF4F0C2C295AA18224CF86B49286E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HCPSalesAid</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0E80E8523312084BCA6E7067B81D87C309C27D4D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>HCPSalesAid</string>
 		</dict>
